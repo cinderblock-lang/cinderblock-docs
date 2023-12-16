@@ -17,7 +17,7 @@ test(123, false);
 A function may only be declared at the namespace scope but a function may be partially invoked at any point in the code with:
 
 ```
-store bound_test = test(false);
+bound_test -> test(false);
 ```
 
 This function may then be called as before:
@@ -39,7 +39,7 @@ This is useful for making fluent APIs. This may only be done when using the name
 Namespace.test(123, false);
 
 // Option 2
-store desired_test = Namespace.test();
+desired_test -> Namespace.test();
 123.desired_test(false);
 ```
 
@@ -115,7 +115,7 @@ fn test(input: use T) {
 
 fn other() {
   // var has type int
-  store var = test(123);
+  var -> test(123);
   return var;
 }
 ```
@@ -129,7 +129,7 @@ fn test(input: () -> use T) {
 
 fn other() {
   // var has type int
-  store var = test(() -> 123);
+  var -> test(() -> 123);
   return var;
 }
 ```
@@ -142,8 +142,8 @@ fn select(self: [use any = T], selector: (input: T) -> use any = R) {
 }
 
 fn test(): [int] {
-  store indexer = 0;
-  store result = while (indexer < 10) {
+  indexer -> 0;
+  result -> while (indexer < 10) {
     indexer += 1;
 
     return indexer;
@@ -170,13 +170,13 @@ fn get_activity(
 }
 
 fn main(): int {
-  store tester = make User {
+  tester -> make User {
     assign username = "Test User";
     assign last_activity = 5;
   }
 
   // This is of type int
-  store is_active = tester.get_activity();
+  is_active -> tester.get_activity();
 
   return 0;
 }
@@ -193,10 +193,10 @@ fn test(input: use int | bool = T) {
 
 fn other() {
   // var has type int
-  store var = test(123);
+  var -> test(123);
 
   /* Will not compile "type of '[char]' is not compatible with type 'int | bool'" */
-  store test = test("123");
+  test -> test("123");
 
   return var;
 }

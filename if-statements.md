@@ -4,7 +4,7 @@ If statments use standard C syntax but, like all blocks in Cinderblock, they mus
 
 ```
 fn test(input: bool): int {
-  store result = if (input) {
+  result -> if (input) {
     return 123;
   } else {
     return 456;
@@ -18,7 +18,7 @@ If statements may also be used without declaring a block for each part. If so, e
 
 ```
 fn test(input: bool): int {
-  store result =
+  result ->
     if (input) return 123;
     else return 456;
 

@@ -21,7 +21,7 @@ Count loops are for when you want to perform an operation for a fixed number of 
 ```
 // Returns 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 fn test(): [int] {
-  store result = count (10 as index) {
+  result -> count (10 as index) {
     return index;
   };
 
@@ -36,11 +36,11 @@ Iterator loops are designed to iterate over other iterators. Otherwise they work
 ```
 // Returns 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 fn test(): [int] {
-  store iterator = count (10 as index) {
+  iterator -> count (10 as index) {
     return index;
   };
 
-  store result = iterate (iterator as item) {
+  result -> iterate (iterator as item) {
     return item + 1;
   };
 
@@ -55,7 +55,7 @@ Reducer loops are designed to iterate over other iterators and produce an aggrig
 ```
 // Returns 55
 fn test(): int {
-  store iterator = count (10 as index) {
+  iterator -> count (10 as index) {
     return index;
   };
 
@@ -72,10 +72,10 @@ Iterators may be contatinated together with the `++` operator.
 ```
 // Returns 110
 fn test(): int {
-  store iterator1 = count (10 as index) {
+  iterator1 -> count (10 as index) {
     return index;
   };
-  store iterator2 = count (10 as index) {
+  iterator2 -> count (10 as index) {
     return index;
   };
 

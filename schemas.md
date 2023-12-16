@@ -17,12 +17,12 @@ fn is_active(target: ActivityData, now: int): bool {
 }
 
 fn main(): int {
-  store tester = make User {
+  tester -> make User {
     assign username = "Test User";
     assign last_activity = 5;
   }
 
-  store is_active = tester.is_active(12);
+  is_active -> tester.is_active(12);
 
   return 0;
 }
@@ -46,12 +46,12 @@ fn is_active(
 }
 
 fn main(): int {
-  store tester = make User {
+  tester -> make User {
     assign username = "Test User";
     assign last_activity = 5;
   }
 
-  store is_active = tester.is_active(12);
+  is_active -> tester.is_active(12);
 
   return 0;
 }
