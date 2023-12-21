@@ -5,8 +5,6 @@ Variables may be created and accessed within functions. All variables are deeply
 ```
 fn something(): int {
   test -> 123;
-
-  test = 456;
   return test;
 }
 ```
